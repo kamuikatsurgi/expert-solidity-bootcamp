@@ -1,6 +1,6 @@
 ### Question 1
 
-*Why is client diversity important for Ethereum?*
+_Why is client diversity important for Ethereum?_
 
 ### Answer
 
@@ -28,28 +28,28 @@ There is also a human cost to having majority clients. It puts excess strain and
 
 ### Question 2
 
-*Where is the full Ethereum state held?*
+_Where is the full Ethereum state held?_
 
 ### Answer
 
 The full Ethereum state is held in the global state trie, which serves as the single repository for all Ethereum accounts' information. This trie is continuously updated and contains key-value pairs for each account, with the key being a 160-bit identifier (the Ethereum account address) and the value encoding various details including nonce, balance, storage root, and code hash. The state trie's root node, a hash of the entire trie, serves as a unique identifier for the state at any given point in time. Additionally, each Ethereum block has its own separate transaction trie, where transactions are organized and accessed via their indexes within the block. The storage trie, housing contract data, is associated with individual Ethereum accounts, and a hash of its root node is stored in the global state trie. These trie structures are implemented using database software such as leveldb, with specific Patricia trie libraries enabling access to the data within the Ethereum installation.
 
-
 ### Question 3
 
-*What is a replay attack?, which 2 pieces of information can prevent it?*
+_What is a replay attack?, which 2 pieces of information can prevent it?_
 
 ### Answer
 
 A replay attack is a type of attack where a valid transaction or action is intercepted and maliciously repeated on a different network or at a different time, without the consent of the original sender.
 
 To prevent replay attacks in smart contracts, two important pieces of information can be utilized:
+
 - **nonce:** A nonce (number used once) is a value included in each transaction sent from an Ethereum account. By requiring that transactions include a nonce that increments with each transaction from the same sender, smart contracts can prevent replay attacks. This is because each transaction would have a unique nonce, and any attempt to replay a transaction with the same nonce would be rejected by the network as a duplicate.
 - **chainId:** When signing a transaction, ensure that the chainId of the target network is included as part of the transaction data. This ensures that the transaction is specific to a particular blockchain network and cannot be replayed on other networks.
 
 ### Question 4
 
-*In a contract, how do we know who called a view function ?*
+_In a contract, how do we know who called a view function ?_
 
 ### Answer
 
@@ -69,7 +69,7 @@ contract MyContract {
 contract TestContract {
 
     MyContract instance;
-    
+
     constructor(MyContract _instance) {
         instance = _instance;
     }
