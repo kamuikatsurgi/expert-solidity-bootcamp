@@ -67,6 +67,7 @@ contract Store {
         address receiver;
     }
     uint256 public number;
+    mapping(address => uint256) balances;
     address admin;
     uint8 index;
     bool flag1;
