@@ -7,6 +7,8 @@ contract Intro {
         assembly {
             let ptr:= mload(0x40)
             mstore(ptr, value)
+            // update free memory pointer value
+            mstore(0x40, add(ptr, 0x20))
             return(ptr, add(ptr, 0x20))
         }
     }
