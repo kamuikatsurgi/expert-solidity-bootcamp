@@ -1,0 +1,3 @@
+[submodule "Homework/Week-2/assembly-exercises/lib/forge-std"]
+	path = Homework/Week-2/assembly-exercises/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
