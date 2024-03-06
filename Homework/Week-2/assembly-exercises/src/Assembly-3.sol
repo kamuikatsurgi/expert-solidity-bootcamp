@@ -8,14 +8,13 @@ contract SubOverflow {
         // Write assembly code that handles overflows
         assembly {
             let result := sub(x, y)
-            // (x - y) > x -> not possible
+            // (x - y) > x -> not possible, underflow
             if gt(result, x) {
                 return(0x60, 0x20)
                 // 0x60 -> always holds zero value, unless modified using the assembly
             }
             let ptr := mload(0x40)
             mstore(ptr, result)
-            mstore(0x40, add(ptr, 0x20))
             return(ptr, add(ptr, 0x20))
         }
     }
