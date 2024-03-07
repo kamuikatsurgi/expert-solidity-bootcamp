@@ -16,10 +16,10 @@ contract Homework {
     function query(
         address _receiver,
         uint256 _amount,
-        function (address, uint256) external returns (bool) erc20_transfer
+        function (address, uint256) external returns (bool) X
     ) public {
-        bool success = erc20_transfer(_receiver, _amount);
-        if (!success) revert();
+        bool success = X(_receiver, _amount);
+        if (!success) revert("ERC20 transfer failed!");
     }
 }
 ```
@@ -50,18 +50,17 @@ pragma solidity 0.8.24;
 
 contract Homework {
 
-    bytes4 transfer_function_selector = bytes4(keccak256(bytes("transfer(address,uint256)")));
+    bytes4 targetSelector = bytes4(keccak256(bytes("transfer(address,uint256)")));
 
     event transferOccurred(address, uint256);
 
     function checkCall (bytes calldata data) external {
         bytes4 selector = bytes4(data[:4]);
-        if (selector != transfer_function_selector) {
-            revert();
+        if (selector != targetSelector) {
+            revert("Invalid function selector!");
         }
         (address receiver, uint256 amount) = abi.decode(data[4:], (address, uint256));
         emit transferOccurred(receiver, amount);
     }
-
 }
 ```

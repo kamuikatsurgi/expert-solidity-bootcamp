@@ -29,8 +29,6 @@ contract Yul {
             let result := add(0x07, 0x08)
             let ptr:= mload(0x40)
             mstore(ptr, result)
-            // update free memory pointer
-            mstore(0x40, add(ptr, 0x20))
             // return result
             return(ptr, 0x20)
         }
