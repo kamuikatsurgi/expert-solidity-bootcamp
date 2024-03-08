@@ -1,6 +1,6 @@
-### Gas Optimisation Game
+### Gas Optimization Game
 
-_Your task is to edit and optimise the Gas.sol contract._
+_Your task is to edit and optimize the Gas.sol contract._
 
 - You cannot edit the tests
 - All the tests must pass.
@@ -10,7 +10,7 @@ _Your task is to edit and optimise the Gas.sol contract._
 
 ### Answer
 
-Before Optimisation Gas Report
+Before Optimization Gas Report
 
 ```bash
 Test result: ok. 16 passed; 0 failed; 0 skipped; finished in 1.16s
